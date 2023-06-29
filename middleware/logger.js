@@ -19,7 +19,6 @@ const logEvents = async (message, logFileName) => {
     {
         console.log(error)
     }
-
 }
 
 const logger = (req, res, next) => {
