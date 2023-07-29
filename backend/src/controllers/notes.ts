@@ -14,12 +14,13 @@ export const getNotes: RequestHandler = async (req, res, next) => {
     }
 }
 export const getNote: RequestHandler = async (req, res, next) => {
-    const noteId = req.params.noteId;
+    const title = req.params.title;
     try {
-        if (!mongoose.isValidObjectId(noteId)) {
-            throw createHttpError(400, "Invalid endpoint");
-        }
-        const note = await NoteModel.findById(noteId).exec();
+        // if (!mongoose.isValidObjectId(title)) {
+        //     throw createHttpError(400, "Invalid endpoint");
+        // }
+        const note = await NoteModel.findOne({ title }).exec();
+        // const note = await NoteModel.
 
         if (!note) {
             throw createHttpError(404, "Note not found")
