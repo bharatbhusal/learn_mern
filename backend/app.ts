@@ -10,7 +10,7 @@ app.use(morgan("dev"))
 
 app.use(express.json());
 
-app.use("/api/notes", notesRoutes)
+app.use("/notes", notesRoutes)
 
 app.use((req, res, next) => {
     next(createHttpError(404, "Endpoint not found"));
